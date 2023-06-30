@@ -1,17 +1,73 @@
-import { ChangeEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import  Pedido  from "../../../../../Fakedb/Interfaces/PedidoInterface";
 import Pedidos from "../../../../../Fakedb/PedidosFake";
+import Usuario from "../../../../../Fakedb/Interfaces/UsuarioInterface";
+import Usuarios from "../../../../../Fakedb/UsuariosFake";
 
 const AdminAddPedidoPage = () => {
+    useEffect(() => {
+        getUsuarios();
+    }, []);
+
     const [dataValues, setDataValues] = useState({
         fecha: new Date(),
+        usuarioId: 0,
     } as Pedido);
+
+    const [users, setUsers] = useState([] as Usuario[]);
+
+    const getUsuarios = () => {
+        let usuariosFake = new Usuarios();
+        let usuarios = usuariosFake.find({
+            role: "user"
+        });
+        setUsers(usuarios);
+    }
 
     const addPedido = (e:any) => {
         e.preventDefault();
-        let pedidosFake:Pedidos = new Pedidos();
-        pedidosFake.create(dataValues);
-        window.location.href = "/admin/pedidos";
+
+        if(!validateDataBefor()){
+            setErrorMessageValidate({message: "Por favor, ingrese todos los datos"});
+        }else{
+            let pedidosFake:Pedidos = new Pedidos();
+            pedidosFake.create(dataValues);
+            window.location.href = "/admin/pedidos";
+        }
+    }
+
+    const [errorMessageValidate, setErrorMessageValidate] = useState({ message : "" } as any);
+
+    const validateDataBefor = () => {
+        if(dataValues.direccion === undefined || dataValues.direccion === null || dataValues.direccion === ""){
+            return false;
+        }
+        if(dataValues.cantidad === undefined || dataValues.cantidad === null || dataValues.cantidad === 0){
+            return false;
+        }
+        if(dataValues.fecha === undefined || dataValues.fecha === null){
+            return false;
+        }
+        if(dataValues.capas === undefined || dataValues.capas === null){
+            return false;
+        }
+        if(dataValues.capas.superior === undefined || dataValues.capas.superior === null || dataValues.capas.superior === "" || dataValues.capas.superior === "0"){
+            return false;
+        }
+        if(dataValues.capas.centro === undefined || dataValues.capas.centro === null || dataValues.capas.centro === "" || dataValues.capas.centro === "0"){
+            return false;
+        }
+        if(dataValues.capas.inferior === undefined || dataValues.capas.inferior === null || dataValues.capas.inferior === "" || dataValues.capas.inferior === "0"){
+            return false;
+        }
+        if(dataValues.estado === undefined || dataValues.estado === null || dataValues.estado === ""){
+            return false;
+        }
+        if(dataValues.usuarioId === undefined || dataValues.usuarioId === null || dataValues.usuarioId === 0){
+            return false;
+        }
+        
+        return true;
     }
 
     return <div className="add-pedido">
@@ -21,6 +77,9 @@ const AdminAddPedidoPage = () => {
             </div>
         </div>
         <div className="add-pedido-body">
+            <div className="center">
+            <p className="errorMessage">{errorMessageValidate.message}</p>
+            </div>
             <div className="add-pedido-form">
                 <div className="loginView__container__form__input center">
                     <div className="loginView__container__form__input_e"><input
@@ -81,7 +140,7 @@ const AdminAddPedidoPage = () => {
                         >
                             <option value="0" disabled selected>Capa Superior</option>
                             <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
+                            <option value="Esponja">Esponja</option>
                         </select>
 
                         <select
@@ -100,7 +159,7 @@ const AdminAddPedidoPage = () => {
                         >
                             <option value="0" disabled selected>Capa Centro</option>
                             <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
+                            <option value="Esponja">Esponja</option>
                         </select>
 
                         <select
@@ -119,7 +178,7 @@ const AdminAddPedidoPage = () => {
                         >
                             <option value="0" disabled selected>Capa Inferior</option>
                             <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
+                            <option value="Esponja">Esponja</option>
                         </select>
                     </div>
                 </div>
@@ -128,7 +187,7 @@ const AdminAddPedidoPage = () => {
                     <div className="loginView__container__form__input_e"><select
                         className="form-input-login form-input-select"
                         value={dataValues.estado}
-                        onChange={(e) => {
+                        onChange={(e:any) => {
                             e.preventDefault();
                             setDataValues({
                                 ...dataValues,
@@ -140,6 +199,25 @@ const AdminAddPedidoPage = () => {
                         <option value="Enviado">Enviado</option>
                         <option value="Pedido">Pedido</option>
                         <option value="Entregado">Entregado</option>
+                    </select></div>
+                </div>
+                <div className="loginView__container__form__input center">
+                    <div className="loginView__container__form__input_e"><select
+                        className="form-input-login form-input-select"
+                        value={dataValues.estado}
+                        onChange={(e:any) => {
+                            e.preventDefault();
+                            setDataValues({
+                                ...dataValues,
+                                usuarioId: parseInt(e.target.value)
+                            });
+                        }} name="usuarioId" id="usuarioId"
+                    >
+                        <option value={0} disabled selected>Usuario</option>
+
+                        {users.map((user) => {
+                            return <option value={user.id}>{user.username}</option>
+                        })}
                     </select></div>
                 </div>
             </div>
