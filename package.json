@@ -10,8 +10,12 @@
     "@types/node": "^16.18.37",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "moment": "^2.29.4",
+    "pdf-creator-node": "^2.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.14.0",
+    "react-router-guarded-routes": "^0.4.5",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -39,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.14.0"
   }
 }

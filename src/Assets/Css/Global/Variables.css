@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:wght@100&display=swap');
+
+
+:root{
+    --color-gray-dark: #2C3639;
+    --color-gray-light: #3F4E4F;
+    --color-brown-light: #DCD7C9;
+    --color-brown-dark: #82442D;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+body{
+    background-color: var(--color-gray-dark);
+}
+
+.center{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+.divTable{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0 0 20px 0;
+    
+}
+
+.divThead{
+    padding: 20px 30px;
+
+}
+
+.divTbody{
+    padding: 0 30px;
+}
+
+.divTable .divThead .divTr,
+.divTable .divTbody .divTr{
+    display: inline-flex;
+    width: 100%;
+}
+
+.divTable .divThead .divTr .divTd,
+.divTable .divTbody .divTr .divTd{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.divTable .divThead .divTr .divTd{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.divTable .divThead .divTr .divTd,
+.divTable .divTbody .divTr .divTd{
+    color: var(--color-gray-light);
+    cursor: pointer;
+
+    width: 100%;
+    border-radius: 20px;
+
+}
+.divTable .divTbody .divTr{
+    padding: 15px 0;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.divTable .divTbody .divTr:hover{
+    background-color: #0000001f;
+   
+}
+
+.container{
+    padding: 0 10px;
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .divTable .divThead .divTr .divTd,
+    .divTable .divTbody .divTr .divTd{
+        font-size: .8rem;
+    }
+
+    .divTable{
+        max-width: 100vh;
+        overflow-x: auto;
+    }
+}
+
+.alert-dialog{
+    position: absolute;
+    background: #00000044;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-dialog-body{
+    padding: 5px 20px 50px 20px;
+}
+
+.alert-dialog-body *{
+    color: var(--color-gray-dark);
+    /*padding: 20px;*/
+    width: 80%;
+    max-width: 500px;
+    padding: 5px 0;
+}
+
+/*.alert-dialog-text-container{
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}*/
+
+.alert-dialog-text-container{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input-select *{
+    color: black;
+}
+
+.loginView__container__form__input_e .form-input-select{
+    width: 100%;
+
+}
+
+.loginView__container__form__input_e{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.form-input-login{
+    padding: 13px 25px !important;
+}
+
+
+.add-pedido-buttons
+.add-pedido-button
+.button {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 10px;
+    min-width: 25%;
+}
+
+.button-primary{
+    background-color: #37942F;
+}
+
+.button-primary:hover{
+    background-color: #2C7A24;
+}
+
+.button-secondary{
+    background-color: #E14646;
+}
+
+.button-secondary:hover{
+    background-color: #C63B3B;
+}
+
+.add-pedido-buttons{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}

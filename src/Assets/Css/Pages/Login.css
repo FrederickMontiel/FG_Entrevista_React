@@ -1,0 +1,91 @@
+#loginView{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--color-gray-dark);
+}
+
+#loginView__container{
+    position: relative;
+    bottom: 50px;
+    width: 95%;
+    text-align: center;
+}
+
+#loginView__container__header .description{
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+#loginView__container__logo img{
+    max-width: 300px;
+    max-width: 300px;
+}
+
+#loginView__container__form{
+    padding: 25px 0 0 0;
+}
+
+.loginView__container__form__input{
+    width: 100%;
+    margin: 10px 0;
+    
+}
+
+.form-input-login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.form-input-login{
+    width: 100%;
+    background: white;
+    color: var(--color-gray-dark);
+    font-weight: bolder;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.loginView__container__form__input button{
+    width: 50%;
+    background: var(--color-brown-dark);
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    #loginView__container{
+        width: 60%;
+    }
+    #loginView__container__logo img{
+        max-width: 400px;
+        max-width: 400px;
+    }
+    .form-input-login{
+        width: 60%;
+    }
+    .loginView__container__form__input button{
+        width: 30%;
+    }
+}
+
+.errorMessage{
+    color: rgb(255, 78, 78);
+    font-weight: bold;
+    padding: 5px 0 10px 0;
+}
+
+.form-input-login{
+    width: 100%;
+}
