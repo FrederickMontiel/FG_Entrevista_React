@@ -46,7 +46,7 @@
 
 }
 .form-input-login{
-    width: 100%;
+    width: 80% !important;
     background: white;
     color: var(--color-gray-dark);
     font-weight: bolder;
