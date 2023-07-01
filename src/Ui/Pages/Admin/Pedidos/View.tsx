@@ -83,11 +83,11 @@ const AdminPedidosPage = () => {
                     </div>
                     <div className="alert-dialog-text-container">
                         <h3>Capas:</h3>
-                        <p>{pedidoSelected?.capas?.inferior} <br/> {pedidoSelected?.capas?.centro} <br/> {pedidoSelected?.capas?.superior}</p>
-                    </div>
-                    <div className="alert-dialog-text-container">
-                        <h3>Cantidad:</h3>
-                        <p>{pedidoSelected?.cantidad}</p>
+                        <p>
+                            Superior: {pedidoSelected?.cantidad} de cuero <br/>
+                            Central: {pedidoSelected?.cantidad} de esponja<br/> 
+                            Inferior: {pedidoSelected?.cantidad} de cuero    
+                        </p>
                     </div>
                     <div className="alert-dialog-text-container">
                         <h3>Estado:</h3>
@@ -141,7 +141,7 @@ const AdminPedidosPage = () => {
                             }}>
                                 <div className="divTd">{pedido?.id}</div>
                                 <div className="divTd">{moment(pedido?.fecha).format("DD/MM/YYYY")} <br/> {moment(pedido?.fecha).format("HH:MM:SS")}</div>
-                                <div className="divTd">{pedido?.capas?.inferior} <br/> {pedido?.capas?.centro} <br/> {pedido?.capas?.superior}</div>
+                                
                                 <div className="divTd">{pedido?.cantidad}</div>
                                 <div className="divTd">{pedido?.estado}</div>
                             </div>

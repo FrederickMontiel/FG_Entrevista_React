@@ -7,11 +7,6 @@ export const PedidosData: Pedido[] = [
         cantidad: 1,
         fecha: new Date(),
         estado: "En proceso",
-        capas:{
-            inferior : "Cuero",
-            centro : "Esponja",
-            superior : "Cuero",
-        },
         usuarioId: 1,
     },
     {
@@ -20,11 +15,6 @@ export const PedidosData: Pedido[] = [
         cantidad: 2,
         fecha: new Date(),
         estado: "En proceso",
-        capas:{
-            inferior : "Cuero",
-            centro : "Esponja",
-            superior : "Cuero",
-        },
         usuarioId: 2,
     },
 ]

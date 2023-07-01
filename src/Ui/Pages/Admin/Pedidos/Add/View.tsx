@@ -62,67 +62,6 @@ const AdminAddPedidoPage = () => {
                         />
                     </div>
                 </div>
-                <div className="loginView__container__form__input center">
-                    <div className="loginView__container__form__input_e">
-                        <select 
-                            className="form-input-login form-input-select"
-                            onChange={(e) => {
-                                e.preventDefault();
-                                setDataValues({
-                                    ...dataValues,
-                                    capas: {
-                                        ...dataValues.capas,
-                                        superior: e.target.value
-                                    }
-                                });
-
-                            }} name="superior" id="superior"
-                            value={dataValues.capas?.superior}
-                        >
-                            <option value="0" disabled selected>Capa Superior</option>
-                            <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
-                        </select>
-
-                        <select
-                            className="form-input-login form-input-select"
-                            onChange={(e) => {
-                                e.preventDefault();
-                                setDataValues({
-                                    ...dataValues,
-                                    capas: {
-                                        ...dataValues.capas,
-                                        centro: e.target.value
-                                    }
-                                });
-                            }} name="centro" id="centro"
-                            value={dataValues.capas?.centro}
-                        >
-                            <option value="0" disabled selected>Capa Centro</option>
-                            <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
-                        </select>
-
-                        <select
-                            className="form-input-login form-input-select"
-                            onChange={(e) => {
-                                e.preventDefault();
-                                setDataValues({
-                                    ...dataValues,
-                                    capas: {
-                                        ...dataValues.capas,
-                                        inferior: e.target.value
-                                    }
-                                });
-                            }} name="inferior" id="inferior"
-                            value={dataValues.capas?.inferior}
-                        >
-                            <option value="0" disabled selected>Capa Inferior</option>
-                            <option value="Cuero">Cuero</option>
-                            <option value="Tela">Tela</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div className="loginView__container__form__input center">
                     <div className="loginView__container__form__input_e"><select
