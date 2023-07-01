@@ -64,6 +64,28 @@ export default class MethodsFake<Table>{
 
         return {} as Table;
     }
+
+    find(query: { [key: string]: any }):Table[]{
+        this.verifyDb();
+        let localStorageData:String | null = localStorage.getItem("db");
+
+        if(localStorageData){
+            let dataDb:any = JSON.parse(localStorageData as string);
+
+            return dataDb[this.constructor.name].filter((item:any) => {
+                let keys = Object.keys(query);
+                let isFind = true;
+                keys.forEach((key)=>{
+                    if(item[key] !== query[key]){
+                        isFind = false;
+                    }
+                });
+                return isFind;
+            });
+        }
+
+        return [];
+    }
         
     create(data:Table){
         this.verifyDb();
